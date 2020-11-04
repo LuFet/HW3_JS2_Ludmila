@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <p id="clock"></p>
+    <input type="button" value="Start" onclick="myStartFunction()" />
+    <input type="button" value="Stop" onclick="myStopFunction()" />
+    <input type="button" value="Reset" onclick="myResetFunction()" />
+
+    <script> 
+      /*Задание 1
+    Разработайте программу секундомер. Секундомер должен иметь три кнопки «Старт», «Стоп», «Сбросить».
+    Секундомер должен выводить время в формате 00:00:00.
+    from https://github.com/mdn/learning-area/blob/master/javascript/asynchronous/loops-and-intervals/setinterval-stopwatch.html*/
+    
+    // Define a counter variable for the number of seconds and set it to zero.
+    let secondCount = 0;
+      // Define a global to store the interval when it is active.
+      let stopWatch;
+      // Store a reference to the display paragraph in a variable
+      var displayPara = document.getElementById('clock');
+        // Function to calculate the current hours, minutes, and seconds, and display the count
+      function displayCount() {
+        // Calculate current hours, minutes, and seconds
+        let hours = Math.floor(secondCount/3600);
+        let minutes = Math.floor((secondCount % 3600)/60);
+        let seconds = Math.floor(secondCount % 60)
+
+        // Display a leading zero if the values are less than ten
+        let displayHours = (hours < 10) ? '0' + hours : hours;
+        let displayMinutes = (minutes < 10) ? '0' + minutes : minutes;
+        let displaySeconds = (seconds < 10) ? '0' + seconds : seconds;
+
+        // Write the current stopwatch display time into the display paragraph
+        displayPara.textContent = displayHours + ':' + displayMinutes + ':' + displaySeconds;
+
+        // Increment the second counter
+        secondCount++;
+      }
+
+      // When the start button is pressed, start running displayCount() once per second using setInterval()
+      function myStartFunction() { 
+        stopWatch = setInterval(displayCount, 1000);
+      }
+
+      // When the stop button is pressed, clear the interval to stop the count.
+      function myStopFunction(){
+        clearInterval(stopWatch);
+      }
+
+      // When the reset button is pressed, set the counter back to zero, then immediately update the display
+      function myResetFunction() {
+        clearInterval(stopWatch);
+        secondCount = 0;
+        console.log(secondCount);
+        displayCount();
+      }
+      // Run displayCount() once as soon as the page loads so the clock is displayed
+      displayCount();
+    </script>
+    
+    </body>
+</html>

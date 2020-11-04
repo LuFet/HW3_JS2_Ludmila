@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*Дополнительное задание
+        Реализуйте страницу, которая после 5 секунд после загрузки отобразит пользователю новое окно с
+        произвольным контентом.
+        */
+        window.onload=function(){
+            timer= setTimeout(showMessage, 5000)
+        }
+        function showMessage(){
+            alert("окно с произвольным контентом");
+        }
+    </script>
+    
+</head>
+<body>
+    <div>
+        <p>Сообщение будет отображено через 5 секунд</p>
+    </div>
+</body>
+</html>
