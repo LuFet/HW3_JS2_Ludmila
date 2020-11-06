@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        /*Задание 3
+            Создайте приложение, которое от пользователя должно принимать строки в формате «10 + 20» или «50 - 6». 
+            При получении такой строки приложение должно отобразить результат арифметического действия.*/
+        function resultFnction(){
+        let text = document.getElementById("numb").value;
+        let pattern= (/\d+|\+|\-/g);        
+        let res = text.match(/\d+|\+|\-/g);
+        console.log(res);
+        let item1 =parseInt(res[0]);
+        let id = res[1];
+        let item2 = parseInt(res[2]);
+        let result = 0;
+        if(id = "+")
+            result = item1 + +item2;
+        else if(id = "-")
+            result = item1 - +item2;
+        else
+            result = "false";
+            alert(result);
+        
+        
+        /*.forEach(function(item, id, arr) {
+        switch(item){
+            case '+': result = +arr[id-1] + +arr[id+1]; break;
+            case '-': result = +arr[id-1] - +arr[id+1]; break;
+            default: return;
+        }
+        alert(result);
+        });*/
+        
+    }
+    </script>
+    <p>введите строкй в формате «10 + 20» или «50 - 6»</p>
+    <input id = "numb">
+    <button type="button" onclick="resultFnction()">Submit</button>
+    <p id="demo"></p>
+</body>
+</html>

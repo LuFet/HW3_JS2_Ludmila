@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Задание 2
+           Разработайте страницу, которая будет выводить сумму двух GET параметров a и b. Например, если на
+           страницу заходят по адресу, page.html?a=100&b=200, то в теле страницы должно отображаться
+           сообщение «сумма 300».
+        */
+        
+        let get = function(id){
+            return document.getElementById(id);         
+        }
+        function getQueryString(){
+            let args= {};
+            let query = location.search.substring(1);
+            console.log(location);
+            console.log(location.search);
+            let pairs = query.split("&");
+            for(let i=0; i<pairs.length;i++)
+            {
+                let pos = pairs.indexOf("=");
+                if(pos=-1) continue;
+    
+                let argname = pairs[i].substring(0, pos);   
+                let value = pairs[i].substring(pos + 1);
+                args[argname] = value;       
+            }
+            return args;
+        }
+        function print(){
+            let args=getQueryString();
+            let e = document.createElement("p");
+            console.log(args);
+            e.innerHTML ="сумма ="+ args.a +"+"+ args.b+"<br />";
+            document.body.appendChild(e);
+        }
+        function submitLoginForm(event){
+        event.preventDefault();
+
+        console.log(event.target['name'].value);
+        console.log(event.target['password'].value);
+    }
+    </script> 
+</head>
+<body>
+    <p id="a"></p>
+    <p id="b"></p>
+    <form onsubmit="submitLoginForm(event)">
+        <input type="text" name="name">
+        <input type="a" name="a">
+        <input type="b" value="b">
+    </form>
+ <!--<input type="button" name="name" value="get sum a and b" onclick="print()" /> --> 
+</body>
+</html>
