@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="urok1" href="JS Урок 1" >JS Урок 1</a><br />
+    <a id="urok2" href="JS Урок 2" >JS Урок 2</a><br />
+    <a id="urok3" href="JS Урок 3" >JS Урок 3</a><br />
+    <script>
+        /*
+        Задание 4
+        Создайте страницу с тремя ссылками: «JS Урок 1», «JS Урок 2», «JS Урок 3». При нажатии по каждой из
+        ссылок должно отображаться окно с описанием соответствующих уроков этого курса. Если окно с
+        описание в данный момент отображается, текст ссылки должен быть «JS Урок № (открыт)». При
+        повторном нажатии на ссылку окно должно исчезать и текст ссылки должен меняться на исходный.
+        */
+
+        window.onload = function(){
+            let link1 = document.getElementById("urok1");
+            let link2 = document.getElementById("urok2");
+            let link3 = document.getElementById("urok3");
+
+            link1.innerHTML = "Urok1";
+            link2.innerHTML = "Urok2";
+            link3.innerHTML = "Urok3";
+
+            link1.onclick = openLink1Handler;
+            link2.onclick = openLink2Handler;
+            link3.onclick = openLink3Handler;
+            link1.onclose = closeLinkHandler;
+            link2.onclose = closeLinkHandler;
+            link3.onclose = closeLinkHandler;            
+        }
+        let w;
+        function openLink1Handler(){
+            this.innerHTML += "(open)";
+            w=window.open("window1.html","Window Name1", "top=100, left=100, width=200,status=yes,rezizable=no");
+            
+        }
+        function openLink2Handler(){
+            this.innerHTML += "(open)";
+            w=window.open("window2.html","Window Name2", "top=100, left=100, width=200,status=yes,rezizable=no");
+            
+        }
+        function openLink3Handler(){
+            this.innerHTML += "(open)";
+            w=window.open("window3.html","Window Name3", "top=100, left=100, width=200,status=yes,rezizable=no");
+            
+        }
+        function closeLinkHandler(){
+            w.close();
+        }
+    </script>
+</body>
+</html>

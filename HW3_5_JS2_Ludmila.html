@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="textlauf">
+    <button type="button" onclick="myFunction()">Submit</button>    
+    <marquee behavior="alternate" direction="right" id="demo"></marquee>    
+    <script>        
+        /*
+        Задание 5
+        Создайте бегущую строку. Пользователь вводит текст в поле ввода и нажимает на кнопку. После чего в
+        элементе страниц отображается бегущая строка с введенным текстом.
+        */
+        var x, text;
+        x = document.getElementById("textlauf").value;
+        document.getElementById("demo").innerHTML = text;        
+    </script>
+</body>
+</html>
