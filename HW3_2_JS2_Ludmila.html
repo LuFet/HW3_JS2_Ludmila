@@ -42,18 +42,18 @@
         function submitLoginForm(event){
         event.preventDefault();
 
-        console.log(event.target['name'].value);
-        console.log(event.target['password'].value);
+        console.log(event.target['a'].value);
+        console.log(event.target['b'].value);
     }
     </script> 
 </head>
 <body>
     <p id="a"></p>
     <p id="b"></p>
-    <form onsubmit="submitLoginForm(event)">
-        <input type="text" name="name">
-        <input type="a" name="a">
+    <form onsubmit="submitLoginForm(event)">        
+        <input type="a" value="a">
         <input type="b" value="b">
+        <input type="text" name="a+b">
     </form>
  <!--<input type="button" name="name" value="get sum a and b" onclick="print()" /> --> 
 </body>
