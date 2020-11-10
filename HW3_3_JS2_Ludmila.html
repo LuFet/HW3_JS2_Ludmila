@@ -13,7 +13,7 @@
         function resultFnction(){
         let text = document.getElementById("numb").value;
         let pattern= (/\d+|\+|\-/g);        
-        let res = text.match(/\d+|\+|\-/g);
+        let res = text.match(pattern);
         console.log(res);
         let item1 =parseInt(res[0]);
         let id = res[1];
